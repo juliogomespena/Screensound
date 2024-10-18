@@ -1,14 +1,18 @@
 ﻿namespace ScreenSound.Entidades;
 
+using ScreenSound.Interfaces;
+
 internal class Avaliacao
 {
-    public Avaliacao()
+    public Avaliacao(IAvaliavel avaliavel)
     {
         if (Notas == null)
             Notas = new List<int>();
+        Avaliavel = avaliavel;
     }
 
     private List<int> Notas { get; }
+    private IAvaliavel Avaliavel { get; }
     public double Media
     {
         get

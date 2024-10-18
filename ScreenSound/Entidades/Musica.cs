@@ -1,4 +1,6 @@
-﻿namespace ScreenSound.Entidades;
+﻿using ScreenSound.Interfaces;
+
+namespace ScreenSound.Entidades;
 
 internal class Musica : IAvaliavel
 {
@@ -10,7 +12,7 @@ internal class Musica : IAvaliavel
         Duracao = duracao;
         Album = album;
         if (avaliacao == null)
-            avaliacao = new Avaliacao();
+            avaliacao = new Avaliacao(this);
     }
 
     public string Nome { get; }

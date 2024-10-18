@@ -158,7 +158,7 @@ internal class Program
             string nomeDaBanda = Console.ReadLine()!;
             if (bandasRegistradas.ContainsKey(nomeDaBanda))
             {
-                Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: (0 - 10)");
+                Console.Write($"Qual a nota (0 - 10) que a banda {nomeDaBanda} merece: ");
                 int nota = int.Parse(Console.ReadLine()!);
                 bandasRegistradas[nomeDaBanda].Avaliacao.AdicionarNota(nota);
                 Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
@@ -188,7 +188,7 @@ internal class Program
             {
                 Console.WriteLine($"Avaliação: {bandasRegistradas[nomeDaBanda].Media.ToString("F2")}.");
                 bandasRegistradas[nomeDaBanda].ExibirDiscografia();
-                Console.WriteLine("\n\nDigite uma tecla para votar ao menu principal");
+                Console.WriteLine("\n\nDigite uma tecla para voltar ao menu principal");
                 Console.ReadKey();
                 Console.Clear();
                 ExibirOpcoesDoMenu();
