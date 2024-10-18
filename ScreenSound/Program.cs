@@ -128,10 +128,14 @@ internal class Program
         {
             Console.Clear();
             ExibirTituloDaOpcao("Exibindo todas as bandas registradas na nossa aplicação");
+            Console.WriteLine($"Número total de bandas: {Banda.bandasCriadas}");
+
+            int i = 1;
 
             foreach (string banda in bandasRegistradas.Keys)
             {
-                Console.WriteLine($"Banda: {banda}");
+                Console.WriteLine($"Banda {i}: {banda}");
+                i++;
             }
 
             Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");

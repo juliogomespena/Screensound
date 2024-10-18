@@ -4,6 +4,7 @@ namespace ScreenSound.Entidades;
 
 internal class Banda : IAvaliavel
 {
+    public static int bandasCriadas = 0;
     private Dictionary<string, Album> albuns = new Dictionary<string, Album>();
     private Avaliacao avaliacao;
 
@@ -12,6 +13,7 @@ internal class Banda : IAvaliavel
         Nome = nome;
         if(avaliacao == null)
             avaliacao = new Avaliacao(this);
+        bandasCriadas++;
     }
 
     public string Nome { get; }
@@ -33,22 +35,24 @@ internal class Banda : IAvaliavel
         else
         {
             Console.WriteLine($"\nDiscografia ->");
+            int j = 1;
             foreach (var album in albuns.Values)
             {
-                Console.WriteLine($"Álbum: {album.Nome} - Avaliação: {album.Avaliacao.Media} - Duração: {album.DuracaoTotal}");
+                Console.WriteLine($"    Álbum {j}: {album.Nome} - Avaliação: {album.Avaliacao.Media} - Duração: {album.DuracaoTotal}");
                 if (album.Musicas.Count == 0)
                 {
-                    Console.WriteLine("Este álbum não possui músicas.");
+                    Console.WriteLine("         Este álbum não possui músicas.");
                 }
                 else
                 {
                     int i = 1;
                     foreach (var musica in album.Musicas)
                     {
-                        Console.WriteLine($"    Música {i}: {musica.Nome} - Avaliação: {musica.Avaliacao.Media} - Duração: {musica.Duracao}");
+                        Console.WriteLine($"        Música {i}: {musica.Nome} - Avaliação: {musica.Avaliacao.Media} - Duração: {musica.Duracao}");
                         i++;
                     }
                 }
+                j++;
             }
         }
     }
