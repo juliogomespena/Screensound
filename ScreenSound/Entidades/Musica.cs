@@ -4,6 +4,7 @@ namespace ScreenSound.Entidades;
 
 internal class Musica : IAvaliavel
 {
+    public static int musicasCriadas = 0;
     private Avaliacao avaliacao;
     public Musica(Banda artista, Album album, string nome, int duracao)
     {
@@ -13,6 +14,7 @@ internal class Musica : IAvaliavel
         Album = album;
         if (avaliacao == null)
             avaliacao = new Avaliacao(this);
+        musicasCriadas++;
     }
 
     public string Nome { get; }
